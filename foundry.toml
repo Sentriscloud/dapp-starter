@@ -1,0 +1,20 @@
+[profile.default]
+src = "contracts"
+out = "out"
+libs = ["lib"]
+solc = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+remappings = [
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+]
+fs_permissions = [{ access = "read", path = "./" }]
+
+[rpc_endpoints]
+mainnet = "https://rpc.sentrixchain.com"
+testnet = "https://testnet-rpc.sentrixchain.com"
+
+[etherscan]
+# Sourcify-compatible verifier — `forge verify-contract --verifier sourcify
+# --verifier-url https://verify.sentrixchain.com` works without an Etherscan
+# API key.
