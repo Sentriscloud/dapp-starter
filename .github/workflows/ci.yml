@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    name: forge build + test
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+
+      - name: forge build
+        run: forge build --sizes
+
+      - name: forge test
+        run: forge test -vv
+
+      - name: Setup Node 20 (for sentrix RPC scripts)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: viem typecheck (script/)
+        run: |
+          if [ -f scripts/package.json ]; then
+            cd scripts && npm ci && npx tsc --noEmit
+          else
+            echo "no scripts/ npm package — skipping"
+          fi
