@@ -15,13 +15,17 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v5
-        with:
-          submodules: recursive
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: stable
+
+      - name: Install forge dependencies
+        run: |
+          # Repo references openzeppelin-contracts + forge-std but lib/ is git-ignored.
+          # Install them via forge install.
+          forge install --no-commit OpenZeppelin/openzeppelin-contracts foundry-rs/forge-std
 
       - name: forge build
         run: forge build --sizes
