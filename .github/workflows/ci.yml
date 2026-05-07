@@ -25,7 +25,7 @@ jobs:
         run: |
           # Repo references openzeppelin-contracts + forge-std but lib/ is git-ignored.
           # Install them via forge install.
-          forge install --no-commit OpenZeppelin/openzeppelin-contracts foundry-rs/forge-std
+          forge install OpenZeppelin/openzeppelin-contracts foundry-rs/forge-std
 
       - name: forge build
         run: forge build --sizes
