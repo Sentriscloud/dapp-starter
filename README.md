@@ -1,5 +1,10 @@
 # Sentrix dApp Starter
 
+[![CI](https://github.com/Sentriscloud/dapp-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/Sentriscloud/dapp-starter/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/Sentriscloud/dapp-starter)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/Sentriscloud/dapp-starter?include_prereleases&sort=semver)](https://github.com/Sentriscloud/dapp-starter/releases/latest)
+
+
 Minimal end-to-end project for shipping a dApp on **Sentrix Chain** (chain ID `7119` mainnet, `7120` testnet) — deploys a small ERC-20 from a Foundry script, wraps native SRX into WSRX, reads it back with viem, and verifies the contract source against the self-hosted Sourcify at `verify.sentrixchain.com`.
 
 If you can deploy on Ethereum, you can deploy on Sentrix — Sentrix runs an embedded `revm 38` interpreter so every Solidity / Vyper contract that targets Cancun-era EIPs works with no Sentrix-specific changes.
