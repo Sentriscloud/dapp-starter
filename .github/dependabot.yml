@@ -6,7 +6,7 @@ updates:
       interval: "monthly"
 
   - package-ecosystem: "npm"
-    directory: "/scripts"
+    directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 3
